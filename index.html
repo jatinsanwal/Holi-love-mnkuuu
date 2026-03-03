@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi 💖</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',cursive;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff4b91,#ff9a9e,#a18cd1,#fbc2eb);
+background-size:400% 400%;
+animation:gradient 10s ease infinite;
+color:white;
+text-align:center;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.page{
+display:none;
+height:100vh;
+width:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:30px;
+box-sizing:border-box;
+}
+
+h1{
+font-size:38px;
+font-weight:bold;
+text-shadow:0 0 20px white;
+}
+
+p{
+font-size:22px;
+max-width:900px;
+line-height:1.8;
+font-weight:bold;
+}
+
+button{
+margin-top:30px;
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4b91;
+cursor:pointer;
+}
+
+img{
+width:320px;
+border-radius:20px;
+box-shadow:0 0 40px white;
+margin-top:20px;
+}
+
+/* Hearts */
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page" id="page1">
+<h1>🌸 Happy Holi 🌸</h1>
+<p>
+Meri taraf se aapko sabse pehla aur sabse khaas Holi wish 💖✨  
+Jaise hi 12 baje… sabse pehla khayal bas aapka hi aaya.  
+Is saal ka pehla rang… pehla ehsaas… aur pehla wish…  
+sirf aur sirf aapke naam hai. 🌈💕  
+</p>
+<button onclick="nextPage()">Aage Dekhiye 💌</button>
+</div>
+
+<div class="page" id="page2">
+<h1>💗 Aap Hi Meri Khushi Hain 💗</h1>
+<p>
+Holi ke rang jitne bhi hote hain…  
+un sabse zyada khoobsurat rang aapki muskaan hai. 💕  
+Aap meri zindagi ka woh rang hain  
+jo kabhi fade nahi hota…  
+jo har din ko special bana deta hai…  
+aur jo har pal ko yaadgar kar deta hai. ✨  
+</p>
+<button onclick="nextPage()">Aur Bhi Hai 💖</button>
+</div>
+
+<div class="page" id="page3">
+<h1>🌈 Mere Dil Ki Baat 🌈</h1>
+<p>
+Is Holi par meri bas ek hi dua hai…  
+ki aap hamesha khush rahein…  
+hamesha muskurate rahein…  
+aur har saal ka pehla rang meri taraf se hi aaye. 💕  
+Aap meri zindagi ka sabse pyara ehsaas hain.  
+</p>
+<button onclick="nextPage()">Last Surprise 🎁</button>
+</div>
+
+<div class="page" id="page4">
+<h1>💖 Happy Holi 💖</h1>
+<img src="IMG_20260220_155604_759.png">
+<p>
+Happy Holi To My Sweetheart 🌸✨  
+Meri taraf se aapko duniya bhar ka pyaar…  
+Aap meri sabse khoobsurat kahani hain. 💕  
+</p>
+</div>
+
+<script>
+let current=1;
+document.getElementById("page1").style.display="flex";
+
+function nextPage(){
+document.getElementById("page"+current).style.display="none";
+current++;
+document.getElementById("page"+current).style.display="flex";
+document.getElementById("music").play();
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
